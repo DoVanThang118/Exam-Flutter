@@ -12,4 +12,6 @@ public class PlaceReq {
     private String name;
 
     private Double rate;
+
+    private String image;
 }

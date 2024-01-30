@@ -19,4 +19,6 @@ public class Place {
     private String name;
 
     private Double rate;
+
+    private String image;
 }
