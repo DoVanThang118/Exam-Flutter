@@ -2,6 +2,8 @@ import 'package:exam_flutter/tabbar_example.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
+import 'home_page.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -17,21 +19,15 @@ class _MainPageState extends State<MainPage> {
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
-          appBar: AppBar(
-            title: const Text(
-              "Hi Guy !",
-              style: TextStyle(color: Colors.white, fontSize: 20),
+            body: IndexedStack(
+              index: _currentIndex,
+              children: [
+                const HomePage(),
+                Container(color: Colors.blue),
+                Container(color: Colors.pink),
+                Container(color: Colors.red),
+              ],
             ),
-            backgroundColor: Colors.blue.withOpacity(0.8),
-          ),
-          body: IndexedStack(
-            index: _currentIndex,
-            children: [
-              Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp4rN33PyWHKh1AnV91DHPLsB-t-FEAjS2eA&usqp=CAU"),
-              TabBarExample(),
-            ],
-          )
-          ,
           bottomNavigationBar: SalomonBottomBar(
             currentIndex: _currentIndex,
             onTap: (index) {
